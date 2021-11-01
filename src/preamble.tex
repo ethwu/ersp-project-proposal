@@ -1,0 +1,46 @@
+\makeatletter%
+
+%%% input/font encoding %%%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+%%% page setup %%%
+\usepackage[letterpaper, margin=1.25in]{geometry}
+
+%%% typefaces %%%
+\usepackage{fontspec}
+\usepackage[babel, tracking=true]{microtype}
+
+
+% text mode underscore
+\AtBeginDocument{
+  \catcode`_=12
+  \begingroup\lccode`~=`_
+  \lowercase{\endgroup\let~}\sb
+  \mathcode`_="8000
+}
+
+%%% margins, lists, and tables %%%
+\usepackage{enumitem}
+\usepackage{booktabs}
+\newcommand*{\hfrule}{\midrule[0.5\lightrulewidth]}
+\newcommand*{\chfrule}[1]{\midrule[0.5\lightrulewidth]{#1}}
+\usepackage{multirow}   % multirow tabular environments
+\let\mc\multicolumn\relax
+\let\mr\multirow\relax
+\usepackage{threeparttable}
+
+%%% localization %%%
+\usepackage[english]{babel}
+\usepackage{csquotes}
+
+%%% references %%%
+\usepackage[hidelinks,      % don't format links differently
+            pdfpagelabels,  % fix pdf page labels
+            ]{hyperref}     % hyperlinked references
+
+\usepackage[nameinlink,     % use name as part of hyperlink
+            noabbrev,       % full reference names
+            ]{cleveref}
+
+\makeatother%
