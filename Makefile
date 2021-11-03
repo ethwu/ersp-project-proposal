@@ -33,3 +33,5 @@ $(artifacts)/$(main).pdf:
 .PHONY: clean
 clean:
 	latexmk -CA -output-directory=$(artifacts) $(src)/$(main)
+	rm -f $(src)/*.bbl $(src)/*.blg
+
