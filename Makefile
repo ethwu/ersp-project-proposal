@@ -25,6 +25,7 @@ $(main).pdf: $(artifacts)/$(main).pdf
 # Build the document.
 .PHONY: $(artifacts)/$(main).pdf
 $(artifacts)/$(main).pdf:
+	mkdir $(artifacts)
 	! $(precompile) || $(tex) $(texflags) --draftmode $(src)/$(main).tex
 	! $(precompile) || $(bib) $(bibflags) $(main)
 	! $(precompile) || $(tex) $(texflags) --draftmode $(src)/$(main).tex
