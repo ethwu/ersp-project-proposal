@@ -25,7 +25,7 @@ $(main).pdf: $(artifacts)/$(main).pdf
 # Build the document.
 .PHONY: $(artifacts)/$(main).pdf
 $(artifacts)/$(main).pdf:
-	mkdir $(artifacts)
+	mkdir -p $(artifacts)
 	! $(precompile) || $(tex) $(texflags) --draftmode $(src)/$(main).tex
 	! $(precompile) || $(bib) $(bibflags) $(main)
 	! $(precompile) || $(tex) $(texflags) --draftmode $(src)/$(main).tex
@@ -35,4 +35,3 @@ $(artifacts)/$(main).pdf:
 clean:
 	latexmk -CA -output-directory=$(artifacts) $(src)/$(main)
 	rm -f $(src)/*.bbl $(src)/*.blg
-

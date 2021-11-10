@@ -1,92 +1,69 @@
-@inproceedings{GuptaArpit2019AEtD,
-    abstract  = {A growing concern within today's networking community is that with the proliferation of Artificial Intelligence/Machine Learning (AI/ML) techniques, a lack of access to real-world production networks is putting academic researchers at a significant disadvantage. Indeed, compared to a select few research groups in industry that can leverage access to their global-scale production networks in their data-driven efforts to develop and evaluate learning models, academic researchers not only struggle to get their hands on real-world data sets but find it almost impossible to adequately train and assess their learning models under realistic conditions.
-                 In this paper, we argue that when appropriately instrumented and properly managed, enterprise networks in the form of university or campus networks can serve as real-world production networks and can, because of their ubiquity, help create a more level playing field for academic researchers. Their various limitations notwithstanding, as real-world production networks, such enterprise networks can (i) serve as unique sources for some of the rich data that will enable these researchers to influence or advance the current state-of-the-art in AI/ML for networking and (ii) also function as much-needed test beds where newly developed AI/ML-based tools can be evaluated or "road-tested" prior to their actual deployment in the production network. We discuss new research challenges that arise from this proposed dual role of campus networks and comment on the opportunities our proposal affords for both academic and industry researchers to benefit from the advantages and limitations of their respective production environments in their common quest to advance the development and evaluation of AI/ML-based tools to the point where they can be deployed in practice.},
-    author    = {Gupta, Arpit and Mac-Stoker, Chris and Willinger, Walter},
-    booktitle = {Proceedings of the 18th {ACM} Workshop on hot topics in networks},
-    isbn      = {9781450370202},
+@article{MacMillanKyle2021MtPa,
+    author    = {MacMillan, Kyle and Mangla, Tarun and Saxon, James and Feamster, Nick},
+    abstract  = {Video conferencing applications (VCAs) have become a critical Internet
+                 application, even more so during the COVID-19 pandemic, as users worldwide now
+                 rely on them for work, school, and telehealth. It is thus increasingly
+                 important to understand the resource requirements of different VCAs and how
+                 they perform under different network conditions, including: how much speed
+                 (upstream and downstream throughput) a VCA needs to support high quality of
+                 experience; how VCAs perform under temporary reductions in available capacity;
+                 how they compete with themselves, with each other, and with other applications;
+                 and how usage modality (e.g., number of participants) affects utilization. We
+                 study three modern VCAs: Zoom, Google Meet, and Microsoft Teams. Answers to
+                 these questions differ substantially depending on VCA. First, the average
+                 utilization on an unconstrained link varies between 0.8 Mbps and 1.9 Mbps.
+                 Given temporary reduction of capacity, some VCAs can take as long as 50 seconds
+                 to recover to steady state. Differences in proprietary congestion control
+                 algorithms also result in unfair bandwidth allocations: in constrained
+                 bandwidth settings, one Zoom video conference can consume more than 75% of the
+                 available bandwidth when competing with another VCA (e.g., Meet, Teams). For
+                 some VCAs, client utilization can decrease as the number of participants
+                 increases, due to the reduced video resolution of each participant's video
+                 stream given a larger number of participants. Finally, one participant's
+                 viewing mode (e.g., pinning a speaker) can affect the upstream utilization of
+                 other participants.},
+    copyright = {http://creativecommons.org/licenses/by/4.0},
+    keywords  = {Computer Science - Networking and Internet Architecture},
     language  = {eng},
-    pages     = {93-100},
-    publisher = {ACM},
-    series    = {HotNets '19},
-    title     = {An Effort to Democratize Networking Research in the Era of {AI/ML}},
-    year      = {2019}
+    title     = {Measuring the Performance and Network Utilization of Popular Video Conferencing Applications},
+    year      = {2021}
 }
-@article{KimHyojoon2021Erop,
-    abstract = {Many promising networking research ideas in programmable networks never see the light of day. Yet, deploying research prototypes in production networks can help validate research ideas, improve them with faster feedback, uncover new research questions, and also ease the subsequent transition to practice. In this paper, we show how researchers can run and validate their research ideas in their own backyards---on their production campus networks---and we have seen that such a demonstrator can expedite the deployment of a research idea in practice to solve real network operation problems. We present P4Campus , a proof-of-concept that encompasses tools, an infrastructure design, strategies, and best practices---both technical and non-technical---that can help researchers run experiments against their programmable network idea in their own network. We use network tapping devices, packet brokers, and commodity programmable switches to enable running experiments to evaluate research ideas on a production campus network. We present several compelling data-plane applications as use cases that run on our campus and solve production network problems. By sharing our experiences and open-sourcing our P4 apps [28], we hope to encourage similar efforts on other campuses.},
-    author   = {Kim, Hyojoon and Chen, Xiaoqi and Brassil, Jack and Rexford, Jennifer},
-    issn     = {0146-4833},
-    journal  = {Computer communication review},
-    language = {eng},
-    number   = {1},
-    pages    = {10-17},
-    title    = {Experience-driven research on programmable networks},
-    volume   = {51},
-    year     = {2021}
+
+@article{RodrriguezDemóstenesZ2014Vqai,
+    author    = {Rodrriguez, Demóstenes Z and Rosa, Renata and Costa, Eduardo and Abrahao, Julia and Bressan, Graca},
+    abstract  = {In video streaming service, the user's Quality of Experience (QoE) is not only related to video signal quality received at consumer's devices, the users' subjectivity must also be considered. In this context, a video quality assessment method that takes into account the user's preference for video content is proposed in this research. In order to perform this task, the users' profiles that include their preferences were stored in a video server. Then, subjective tests of video quality assessment were conducted, in which evaluators had different video content preferences. Results show that the evaluators' QoE is highly correlated with the user's preference for video content type. Based on these experimental results, a function named Preference Factor (PF) is defined and used to adjust the quality index values obtained by an objective video quality metric running in the end user's device. The PF function also depends on video content type and quality index score. Using the PF function, the enhanced Video streaming Quality Metric (e-VsQM) is proposed and the results of its performance evaluation demonstrate that PF improves an objective video quality metric. Furthermore, e-VsQM has low complexity and can be utilized in different video services. Thus, an application scenario is presented, in which the proposed video quality metric is implemented.},
+    issn      = {0098-3063},
+    journal   = {IEEE transactions on consumer electronics},
+    keywords  = {Context ; Distribution (Probability theory) ; Image processing ; Indexes ; Innovations ; Mathematical optimization ; Measurement ; MOS ; Multimedia communication ; QoE ; Quality assessment ; Streaming media ; Subjective Test ; Usage ; Video Quality Metrics ; Video recording ; Video Streaming},
+    language  = {eng},
+    number    = {3},
+    pages     = {436-444},
+    publisher = {IEEE},
+    title     = {Video quality assessment in video streaming services considering user preference for video content},
+    volume    = {60},
+    year      = {2014}
 }
-@article{10.1145/1355734.1355746,
-    author     = {McKeown, Nick and Anderson, Tom and Balakrishnan, Hari and Parulkar, Guru and Peterson, Larry and Rexford, Jennifer and Shenker, Scott and Turner, Jonathan},
-    title      = {OpenFlow: Enabling Innovation in Campus Networks},
-    year       = {2008},
-    issue_date = {April 2008},
-    publisher  = {Association for Computing Machinery},
-    address    = {New York, NY, USA},
-    volume     = {38},
-    number     = {2},
-    issn       = {0146-4833},
-    url        = {https://doi.org/10.1145/1355734.1355746},
-    doi        = {10.1145/1355734.1355746},
-    abstract   = {This whitepaper proposes OpenFlow: a way for researchers to run experimental protocols
-                  in the networks they use every day. OpenFlow is based on an Ethernet switch, with
-                  an internal flow-table, and a standardized interface to add and remove flow entries.
-                  Our goal is to encourage networking vendors to add OpenFlow to their switch products
-                  for deployment in college campus backbones and wiring closets. We believe that OpenFlow
-                  is a pragmatic compromise: on one hand, it allows researchers to run experiments on
-                  heterogeneous switches in a uniform way at line-rate and with high port-density; while
-                  on the other hand, vendors do not need to expose the internal workings of their switches.
-                  In addition to allowing researchers to evaluate their ideas in real-world traffic
-                  settings, OpenFlow could serve as a useful campus component in proposed large-scale
-                  testbeds like GENI. Two buildings at Stanford University will soon run OpenFlow networks,
-                  using commercial Ethernet switches and routers. We will work to encourage deployment
-                  at other schools; and We encourage you to consider deploying OpenFlow in your university
-                  network too},
-    journal    = {SIGCOMM Comput. Commun. Rev.},
-    month      = mar,
-    pages      = {69–74},
-    numpages   = {6},
-    keywords   = {ethernet switch, flow-based, virtualization}
+
+@article{marczak2020,
+    author  = {Marczak, Bill and Scott--Railton, John},
+    journal = {Citizen Lab},
+    title   = {Zoom uses a bespoke extension of {RTP}},
+    year    = {2020},
+    url     = {https://citizenlab.ca/2020/04/move-fast-roll-your-own-crypto-a-quick-look-at-the-confidentiality-of-zoom-meetings/}
 }
-@article{KayasthaNipendra2014Sgsd,
-    author   = {Kayastha, Nipendra and Niyato, Dusit and Hossain, Ekram and Han, Zhu},
-    issn     = {1530-8669},
-    journal  = {Wireless communications and mobile computing},
-    language = {eng},
-    number   = {11},
-    pages    = {1055-1087},
-    title    = {Smart grid sensor data collection, communication, and networking: a tutorial: Smart grid sensor data collection, communication, and networking},
-    volume   = {14},
-    year     = {2014}
+
+@article{walia2019,
+    author  = {Walia, Nitasha},
+    journal = {Zoom Blog},
+    title   = {Here's How Zoom Provides Industry-Leading Video Capacity},
+    year    = {2019},
+    url     = {https://blog.zoom.us/zoom-can-provide-increase-industry-leading-video-capacity/}
 }
-@article{KimHyojoon2021Erop,
-    abstract = {Many promising networking research ideas in programmable networks never see the light of day. Yet, deploying research prototypes in production networks can help validate research ideas, improve them with faster feedback, uncover new research questions, and also ease the subsequent transition to practice. In this paper, we show how researchers can run and validate their research ideas in their own backyards---on their production campus networks---and we have seen that such a demonstrator can expedite the deployment of a research idea in practice to solve real network operation problems. We present P4Campus , a proof-of-concept that encompasses tools, an infrastructure design, strategies, and best practices---both technical and non-technical---that can help researchers run experiments against their programmable network idea in their own network. We use network tapping devices, packet brokers, and commodity programmable switches to enable running experiments to evaluate research ideas on a production campus network. We present several compelling data-plane applications as use cases that run on our campus and solve production network problems. By sharing our experiences and open-sourcing our P4 apps [28], we hope to encourage similar efforts on other campuses.},
-    author   = {Kim, Hyojoon and Chen, Xiaoqi and Brassil, Jack and Rexford, Jennifer},
-    issn     = {0146-4833},
-    journal  = {Computer communication review},
-    language = {eng},
-    number   = {1},
-    pages    = {10-17},
-    title    = {Experience-driven research on programmable networks},
-    volume   = {51},
-    year     = {2021}
-}
-@article{BosshartPat2014Pppp,
-    abstract = {P4 is a high-level language for programming protocol-independent packet processors. P4 works in conjunction with SDN control protocols like OpenFlow. In its current form, OpenFlow explicitly specifies protocol headers on which it operates. This set has grown from 12 to 41 fields in a few years, increasing the complexity of the specification while still not providing the flexibility to add new headers. In this paper we propose P4 as a strawman proposal for how OpenFlow should evolve in the future. We have three goals: (1) Reconfigurability in the field: Programmers should be able to change the way switches process packets once they are deployed. (2) Protocol independence: Switches should not be tied to any specific network protocols. (3) Target independence: Programmers should be able to describe packet-processing functionality independently of the specifics of the underlying hardware. As an example, we describe how to use P4 to configure a switch to add a new hierarchical label.},
-    author   = {Bosshart, Pat and Daly, Dan and Gibb, Glen and Izzard, Martin and McKeown, Nick and Rexford, Jennifer and Schlesinger, Cole and Talayco, Dan and Vahdat, Amin and Varghese, George and Walker, David},
-    issn     = {0146-4833},
-    journal  = {Computer communication review},
-    language = {eng},
-    number   = {3},
-    pages    = {87-95},
-    title    = {P4: programming protocol-independent packet processors},
-    volume   = {44},
-    year     = {2014},
+
+@article{kim2021,
+    author  = {Kim, Tae},
+    title   = {Zoom Won't Stop at Video Chat Dominance},
+    journal = {Bloomberg},
+    year    = {2021},
+    url     = {https://www.bloomberg.com/news/newsletters/2021-08-04/zoom-won-t-stop-at-video-chat-dominance/}
 }
