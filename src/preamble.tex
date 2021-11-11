@@ -4,6 +4,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+%%% flow control %%%
+\usepackage{xifthen}
+
 %%% page setup %%%
 \usepackage[letterpaper, margin=1.25in]{geometry}
 
@@ -22,14 +25,21 @@
 }
 
 %%% margins, lists, and tables %%%
+% improved list settings
 \usepackage{enumitem}
+% nice looking table rules
 \usepackage{booktabs}
+% a half-size rule for delineating sections within the body of a table
 \newcommand*{\hfrule}{\midrule[0.5\lightrulewidth]}
 \newcommand*{\chfrule}[1]{\midrule[0.5\lightrulewidth]{#1}}
-\usepackage{multirow}   % multirow tabular environments
+% multirow tabular environments
+\usepackage{multirow}
+% shortcuts for \multicolumn and \multirow (\mc and \mr, respectively)
 \let\mc\multicolumn\relax
 \let\mr\multirow\relax
+% table notes
 \usepackage{threeparttable}
+
 
 %%% localization %%%
 \usepackage[english]{babel}
@@ -43,5 +53,22 @@
 \usepackage[nameinlink,     % use name as part of hyperlink
             noabbrev,       % full reference names
             ]{cleveref}
+
+
+%%% conveniences %%%
+% place a large, obvious TODO marker
+\newcommand*{\todo}{\textsf{\textbf{TODO}}}
+
+% Conditionally include a chunk of text. Useful if we need to remove some text
+% for irrelevance or any other reason.
+% \maybe[include?]{text}{comment}
+%   include?  - Whether to include the text. Set to `not` to exclude the text.
+%   text      - Text that may or may not be included in the final draft.
+\newcommand*{\maybe}[3][]{%
+            \ifthenelse{\equal{#1}{not}}%
+                        {}%
+                        {#2\ifthenelse{\equal{#1}{so}}%
+                                      {}%
+                                      {\marginpar{#3}}}}
 
 \makeatother%

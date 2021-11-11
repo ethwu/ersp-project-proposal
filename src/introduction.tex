@@ -2,10 +2,11 @@
     Recently, there has been a large shift towards video conferencing. While much research has been done over video streaming applications, relatively little has been done for video conferencing applications~(VCA). In particular, some~VCAs make it difficult to evaluate quality of experience~(QoE) and quality of service~(QoS) metrics from the network or even application layer. In particular; Zoom, a popular~VCA controlling 76\,\%~of the video-conferencing market as of June~2021~\autocite{kim2021}; uses its own closed-source transport protocol~\autocite{marczak2020} and only reports application performance at a minute's granularity~\autocite{walia2019}. This makes it difficult to evaluate~QoE and~QoS.
 
     \subsection{Quality of Experience}\label{introduction:qoe}
-        Quality of experience (QoE) is a
+        Quality of experience (QoE) is a subjective metric expressing how users assess the quality of aspects of the application, such as video quality. \maybe{It is typically evaluated using a Mean Opinion Score~(MOS), taken as the average score given by at least fifteen human evaluators~\autocite{RodrriguezDemóstenesZ2014Vqai}.}{Remove if this proves irrelevant.}
+
 
     \subsection{Quality of Service}\label{introduction:qos}
-        Quality of service (QoS) is 
+        Quality of service (QoS) is a metric expressing \todo. It is quantified as the \emph{frames per second}~(FPS), \emph{quantization parameter}, and the \emph{video resolution}~\autocite{MacMillanKyle2021MtPa}.
 
     \subsection{WebRTC}\label{introduction:webrtc}
-        WebRTC is an application-layer protocol used for video conferencing. It is built upon RTP. While some of the popular~VCAs use~WebRTC, Zoom uses its own closed-source extension~\autocite{marczak2020}, making it difficult to evaluate QoE~and QoS~metrics from the network layer. While the Zoom~API does provide some QoE information, it is at a minute's granularity~\autocite{walia2019}, which is both at the application layer and is not fine enough for our purposes.
+        WebRTC is an application-layer protocol used for video conferencing. It is built upon~RTP. While some of the popular~VCAs use~WebRTC, Zoom uses its own closed-source extension~\autocite{marczak2020}, making it difficult to evaluate QoE~and QoS~metrics from the network layer. While the Zoom~API does provide some QoE information, it is at a minute's granularity~\autocite{walia2019}, which is both at the application layer and is not fine enough for our purposes.
