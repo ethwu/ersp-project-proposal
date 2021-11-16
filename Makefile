@@ -26,7 +26,7 @@ $(main).pdf: $(artifacts)/$(main).pdf
 .PHONY: $(artifacts)/$(main).pdf
 $(artifacts)/$(main).pdf:
 	mkdir -p $(artifacts)
-	#sed -ri 's/([^\\])(%|&)/\1\\\2/g' $(src)/$(main).bib
+	sed -ri 's/([^\\])(%|&)/\1\\\2/g' $(src)/$(main).bib
 	! $(precompile) || $(tex) $(texflags) --draftmode $(src)/$(main).tex
 	! $(precompile) || $(bib) $(bibflags) $(main)
 	! $(precompile) || $(tex) $(texflags) --draftmode $(src)/$(main).tex
@@ -35,4 +35,5 @@ $(artifacts)/$(main).pdf:
 .PHONY: clean
 clean:
 	latexmk -CA -output-directory=$(artifacts) $(src)/$(main)
-	rm -f $(src)/*.bbl $(src)/*.blg
+	rm -f $(src)/*.bbl $(src)/*.blg $(src)/*.fdb_latexmk $(src)/*.fls \
+		$(artifacts)/*.bbl $(artifacts)/*.run.xml

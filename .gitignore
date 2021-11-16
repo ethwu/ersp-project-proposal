@@ -1,9 +1,33 @@
+## macOS ##
 .DS_Store
+
+## LaTeX ##
 *.aux
-*.bbl
 *.bcf
-*.blg
+*.dvi
+*.fls
+# List of Figures
+*.lof
 *.log
-*.out
+# List of Tables
+*.lot
 *.pdf
+*.ps
+*.tex~
+# Table of Contents
+*.toc
+
+## BibLaTeX ##
+# Bibliography
+*.bbl
+
+## Biber ##
 *.run.xml
+# Log File
+*.blg
+
+## hyperref ##
+*.out
+
+## latexmk ##
+*.fdb_latexmk

@@ -12,7 +12,10 @@
 
 %%% typefaces %%%
 \usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
 \usepackage[babel, tracking=true]{microtype}
+% reduce letterspacing for small caps
+\SetTracking{encoding=*, shape=sc}{10}
 \usepackage{hyphenat}
 
 
@@ -24,7 +27,7 @@
   \mathcode`_="8000
 }
 
-%%% margins, lists, and tables %%%
+%%% margins, lists, figures, and tables %%%
 % improved list settings
 \usepackage{enumitem}
 % nice looking table rules
@@ -39,6 +42,8 @@
 \let\mr\multirow\relax
 % table notes
 \usepackage{threeparttable}
+% float placement control
+\usepackage{placeins}
 
 
 %%% localization %%%
@@ -71,4 +76,6 @@
                                       {}%
                                       {\marginpar{#3}}}}
 
+% stronger emphasis than \emph. small caps.
+\newcommand{\impt}[1]{{\addfontfeatures{RawFeature={+c2sc, +smcp, +onum}}#1}}
 \makeatother%
