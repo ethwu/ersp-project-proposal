@@ -26,7 +26,7 @@ $(main).pdf: $(artifacts)/$(main).pdf
 .PHONY: $(artifacts)/$(main).pdf
 $(artifacts)/$(main).pdf:
 	mkdir -p $(artifacts)
-	sed -ri 's/([^\\])(%|&)/\1\\\2/g' $(src)/$(main).bib
+	sed -ri '' 's/([^\\])(%|&)/\1\\\2/g' $(src)/$(main).bib
 	! $(precompile) || $(tex) $(texflags) --draftmode $(src)/$(main).tex
 	! $(precompile) || $(bib) $(bibflags) $(main)
 	! $(precompile) || $(tex) $(texflags) --draftmode $(src)/$(main).tex
