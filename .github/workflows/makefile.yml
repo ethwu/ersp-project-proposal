@@ -16,4 +16,6 @@ jobs:
     - uses: xu-cheng/texlive-action/full@v1
 
     - name: Build document
-      run: make
+      run: |
+        apk add make
+        make
