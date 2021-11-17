@@ -52,12 +52,12 @@
 
 %%% references %%%
 \usepackage[hidelinks,      % don't format links differently
-            pdfpagelabels,  % fix pdf page labels
-            ]{hyperref}     % hyperlinked references
+  pdfpagelabels,  % fix pdf page labels
+]{hyperref}     % hyperlinked references
 
 \usepackage[nameinlink,     % use name as part of hyperlink
-            noabbrev,       % full reference names
-            ]{cleveref}
+  noabbrev,       % full reference names
+]{cleveref}
 
 
 %%% conveniences %%%
@@ -70,11 +70,11 @@
 %   include?  - Whether to include the text. Set to `not` to exclude the text.
 %   text      - Text that may or may not be included in the final draft.
 \newcommand*{\maybe}[3][]{%
-            \ifthenelse{\equal{#1}{not}}%
-                        {}%
-                        {#2\ifthenelse{\equal{#1}{so}}%
-                                      {}%
-                                      {\marginpar{#3}}}}
+  \ifthenelse{\equal{#1}{not}}%
+  {}%
+  {#2\ifthenelse{\equal{#1}{so}}%
+    {}%
+    {\marginpar{#3}}}}
 
 % stronger emphasis than \emph. small caps.
 \newcommand{\impt}[1]{{\addfontfeatures{RawFeature={+c2sc, +smcp, +onum}}#1}}
