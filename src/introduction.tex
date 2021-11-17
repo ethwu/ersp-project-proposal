@@ -1,34 +1,25 @@
 \section{Introduction}\label{introduction}
-    Recently, there has been a large shift towards video conferencing. While much research has been done over video streaming applications, relatively little has been done for video conferencing applications~(VCA). In particular, some~VCAs make it difficult to evaluate quality of experience~(QoE) and quality of service~(QoS) metrics from the network or even application layer. In particular; Zoom, a popular~VCA controlling 76\,\%~of the video-conferencing market as of June~2021~\autocite{kim2021}; uses its own closed-source transport protocol~\autocite{marczak2020} and only reports application performance at a minute's granularity~\autocite{walia2019}. This makes it difficult to evaluate~QoE and~QoS.
+    Recently, there has been a large shift towards video conferencing. While much research has been done on video streaming applications, relatively little has been done for video conferencing applications~(VCA). In particular, some~VCAs make it difficult to evaluate the quality of experience~(QoE) and the quality of service~(QoS) metrics from the network or even application layer. In particular; Zoom, a popular~VCA controlling 76\,\%~of the video-conferencing market as of June~2021~\autocite{kim2021}; uses its own closed-source transport protocol~\autocite{marczak2020} and only reports application performance at a minute's granularity~\autocite{walia2019}. This makes it difficult to evaluate~QoE and~QoS. Only by drawing relations between QoS and QoE metrics, we would be able to know more about possible ways we can further optimize the network and the experience of the users, when the network resources are limited, by updating the algorithms used by the programmable switches and servers. 
 
     \subsection{Quality of Service}\label{introduction:qos}
-        Quality of service (QoS) is a metric expressing the performance of the network. One important thing we need to know is packets: During the video meeting or video converancing through Internet, computers need to send and receive data. The data is packed into chunks, which we call it packets, and they are send through the rountes and into the Internet. The protocol most VCAs use is User Datagram Protocol (UDP), and its' packets do not contain any information about the network quality. Luckily, the transport layer protocol, WebRTC, is able to note down some of the information while still very limited.
-        
-        Due to the limited statistics we can collect from packet captures and the form of protocol VCAs are using, which is WebRTC under UDP, we can only collect several statistics for our project. 
+        Quality of service (QoS) is a metric expressing the performance of the network. One important thing we need to know is packets: During video meetings or video converances through Internet, computers need to send and receive data. The data is packed into chunks, which we call packets, and sent through the links and into the Internet. The protocol most VCAs use is User Datagram Protocol (UDP), and its' packets do not contain any information about the network quality. Luckily, the application layer protocol, WebRTC, is able to note down some of the information while still very limited.
 
-        \begin{itemize}
-            \item Uplink bitrates
-            
-                Uplink bitrates or uplink capacity are the rate of the client sending packets to the other users or the relay server, usually measured in Mbps. Low uplink bitrates indicate that the user are not or unable to upload their videos and audios with great/clear quality. 
+        Due to the limited statistics we can collect from packet captures and the form of protocol VCAs are using, which is WebRTC under UDP, we can only collect several statistics for our project. These are the major statistics we plan to collect and study.
 
-            \item Downlink bitrates
-            
-                Similarly, downlink bitrates or downlink capacity are the rate of the client downloading things from the other users or the relay server, also measured in Mbps. Low Downlink bitrates indicate users are not or not able to download the videos and audios of other users fast enough, or with great quality, which means the video might be low in resolution, refresh rates, or even lag or frezze.
+        \begin{description}
+            \item[Uplink Bitrates] Uplink bitrates or uplink capacity are the rate of the client sending packets to the other users or the relay server, usually measured in Mbps. Low uplink bitrates indicate that the users are not or unable to upload their videos and audios with great/clear quality. 
 
-            \item Packet loss
-            
-                Naturally, UDP does not collect information about packet loss, while the WebRTC, the transport layer protocol that most of the VCAs use, are able to record packet loss information. It is imaginable that some packets will be loss on their way, probably due to bad network, congestions, or even broken cables. Recording packet loss can help us infer about the Quality of Experience of the users. Packet loss is measured in persentage in given period of time. 
+            \item[Downlink Bitrates] Similarly, downlink bitrates or downlink capacity are the rate of the client downloading things from the other users or the relay server, also measured in Mbps. Low Downlink bitrates indicate users are not or unable to download the videos and audios of other users fast enough, or with great quality, which means the video might be low in resolution, refresh rates, or even lag or freeze.
 
-        \end{itemize}
+            \item[Packet Loss] Naturally, UDP does not collect information about packet loss, while the WebRTC, the application layer protocol that most of the VCAs use, is able to record packet loss information. It is imaginable that some packets will be lost on their way, probably due to weak WiFi signals, congestions, or even broken cables. Recording packet loss can help us infer the Quality of Experience of the users. Packet loss is measured in percentage in a given period of time.
+        \end{description}
 
-        
-
-        There are three major factors that contribute to poor video quality: packet loss due to unreliable transmission, delays caused by the network capacity, and jitter, caused by irregular delays~\autocite{ChenYanjiao2015FQtQ}.
+        There are three known major factors that contribute to poor video quality: packet loss due to unreliable transmission, delays caused by the network capacity, and jitter, caused by irregular delays~\autocite{ChenYanjiao2015FQtQ}. Yet, we do not know how much each contributes to the bad QoE. 
 
     \subsection{Quality of Experience}\label{introduction:qoe}
-        Quality of experience~(QoE) is the user's perception of~QoS~\autocite{ChenYanjiao2015FQtQ}. Because QoE~is a subjective metric, it is typically measured using opinion surveys over experiment participants~\autocite{ChenYanjiao2015FQtQ,RodrriguezDemóstenesZ2014Vqai}. Since the QoS~metrics do not necessarily translate one-to-one to their perception of service quality, QoE~has supplanted~QoS as the barometer of user satisfaction~\autocite{DinakiHosseinEbrahimi2021FVQW}.
+        Quality of experience is the user's perception of~QoS~\autocite{ChenYanjiao2015FQtQ}. Because QoE~is a subjective metric, it is typically measured using opinion surveys over experiment participants~\autocite{ChenYanjiao2015FQtQ,RodrriguezDemóstenesZ2014Vqai}. Since the QoS~metrics do not necessarily translate one-to-one to their perception of service quality, QoE~has supplanted~QoS as the barometer of user satisfaction~\autocite{DinakiHosseinEbrahimi2021FVQW}.
 
-        While surveying users is an accurate measure of~QoE, it is costly, not real-time, and only viable in a laboratory environment~\autocite{ChenYanjiao2015FQtQ,SongHan2011Qpsq}. Because of this, QoE~must generally be modelled using the QoS~metrics available to network operators. One such approach is that of \textcite{DinakiHosseinEbrahimi2021FVQW}, who use a heuristic for video streaming~QoE factoring the playback duration, join time buffering, buffering length, buffering frequency, and average bitrate. \Textcite{SongHan2011Qpsq} describe another QoE~metric, Q-score. These systems use the QoS~data in order to infer the user's~QoE in real-time, allowing the network operator to make decisions on how to optimize the network performance.
+        While surveying users is an accurate measure of~QoE, it is costly, not real-time, and only viable in a laboratory environment~\autocite{ChenYanjiao2015FQtQ,SongHan2011Qpsq}. Because of this, QoE~must generally be modeled using the QoS~metrics available to network operators. One such approach is that of \textcite{DinakiHosseinEbrahimi2021FVQW}, who use a heuristic for video streaming~QoE factoring the playback duration, join time buffering, buffering length, buffering frequency, and average bitrate. \Textcite{SongHan2011Qpsq} describe another QoE~metric, Q-score. These systems use the QoS~data in order to infer the user's~QoE in real-time, allowing the network operator to make decisions on how to optimize the network performance.
 
         Video conferencing in particular is impacted by QoS~metrics such as the \emph{frames per second}~(FPS), \emph{quantization parameter}, and the \emph{video resolution}~\autocite{MacMillanKyle2021MtPa}.
         % video conferencing uses different qoe metrics, find a paper talking about those
@@ -50,6 +41,7 @@
         WebRTC is an application-layer protocol used for video conferencing. It is built upon~RTP. While some of the popular~VCAs use~WebRTC, Zoom uses its own closed-source extension~\autocite{marczak2020}, making it difficult to evaluate QoE~and QoS~metrics from the network layer. While the Zoom~API does provide some QoE information, it is at a minute's granularity~\autocite{walia2019}, which is both at the application layer and is not fine enough for our purposes.
 
     % This section covers our motivations for the project.
-    \subsection{Applications}\label{introduction:applications}
-        \subsubsection{Proactive QoE Management}\label{introduction:applications:management}
-            Real-time QoE~monitoring can be used to improve the perceived~QoE of users on the network. For example, the network may use the QoS~parameters to proactively estimate the user's~QoE, and choose to reprioritize currently buffered packets in order to optimize said~QoE~\autocite{DinakiHosseinEbrahimi2021FVQW}.
+    %\subsection{Applications}\label{introduction:applications}
+    \subsection{Proactive QoE Management}\label{introduction:applications:management}
+        Real-time QoE~monitoring can be used to improve the perceived~QoE of users on the network. For example, the network may use the QoS~parameters to proactively estimate the user's~QoE, and choose to reprioritize currently buffered packets in order to optimize said~QoE~\autocite{DinakiHosseinEbrahimi2021FVQW}.
+
