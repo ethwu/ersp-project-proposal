@@ -14,7 +14,7 @@
             \item[Packet Loss] Network data may be lost in transit, quantified as \emph{packet loss}. This may be because of software factors such as network congestion, or physical factors such as poor wireless signal or broken cabling. Packet loss is measured as a percentage over a given time period.
         \end{description}
 
-        There are three known major factors that contribute to poor video quality: packet loss due to unreliable transmission, delays caused by the network capacity, and jitter, caused by irregular delays~\autocite{ChenYanjiao2015FQtQ}.
+        % There are three known major factors that contribute to poor video quality: packet loss due to unreliable transmission, delays caused by the network capacity, and jitter, caused by irregular delays~\autocite{ChenYanjiao2015FQtQ}.
 
     \subsection{Quality of Experience}\label{introduction:qoe}
         Quality of experience is the user's perception of~QoS~\autocite{ChenYanjiao2015FQtQ}. Because QoE~is a subjective metric, it is typically measured using opinion surveys over experiment participants~\autocite{ChenYanjiao2015FQtQ,RodrriguezDemóstenesZ2014Vqai}. Since the QoS~metrics do not necessarily translate one-to-one to their perception of service quality, QoE~has supplanted~QoS as the barometer of user satisfaction~\autocite{DinakiHosseinEbrahimi2021FVQW}.
@@ -26,13 +26,13 @@
 
         % If this paragraph is eventually relevant to our solution, keep it.
         Quality of experience can be impaired by visual distortions. In video streaming, these distortions may include~\autocite{YuenMichael1998Asoh}:
-        \begin{itemize}
-            \item The \emph{blocking effect}, where the reconstructed image contains block-shaped discontinuities due to the frame being encoded in blocks.
-            \item \emph{Blurring}, where the amount of detail in the image is lost, and the sharpness of edges is reduced.
-            \item \emph{Color bleeding}, where detail is smoothed out and areas with contrasting colors show smears of the other color.
-            \item \emph{Edginess}, where the edges of the image show distortions~\autocite{ChenYanjiao2015FQtQ}.
-            \item \emph{Jerkiness}, where \enquote{snapshots} of a continuous motion appear in succession, producing a \enquote{disjointed sequence}.
-        \end{itemize}
+        \begin{description}
+            \item[Blocking Effect] The reconstructed image contains block-shaped discontinuities due to the frame being encoded in blocks.
+            \item[Blurring] The amount of detail in the image is lost, and the sharpness of edges is reduced.
+            \item[Color Bleeding] Detail is smoothed out and areas with contrasting colors show smears of the other color.
+            \item[Edginess] The edges of the image show distortions~\autocite{ChenYanjiao2015FQtQ}.
+            \item[Jerkiness] \enquote{Snapshots} of a continuous motion appear in succession, producing a \enquote{disjointed sequence}.
+        \end{description}
 
         Quality of experience can also be negatively impacted by the format with which the video is compressed. When automatically monitoring for~QoE, systems often consider the bitrate and the frame rate~\autocite{ChenYanjiao2015FQtQ}. The bitrate is the rate at which the video codec compressing the video emits data, and the frame rate is the number of frames displayed per second. Moreover, the video itself may impact the~QoE---videos with low amounts of movement may appear to have higher quality than videos with high amounts of movement when subjected to jitter or packet loss, for example~\autocite{ChenYanjiao2015FQtQ}.
 
