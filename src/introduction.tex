@@ -6,15 +6,21 @@
     \subsection{Quality of Service}\label{introduction:qos}
         Quality of service (QoS) is a metric expressing the performance of the network. One important thing we need to know is packets: During video meetings or video converances through Internet, computers need to send and receive data. The data is packed into chunks, which we call packets, and sent through the links and into the Internet. The protocol used by most~VCAs is the User Datagram Protocol (UDP). However, UDP~packets do not contain any information about the network quality. Instead, a limited amount of network information is recorded by the application-layer protocol,~WebRTC.
 
-        Because most VCAs use WebRTC and UDP, there are a limited number of statistics that we can collect. We intend to collect the following statistics:
+        \subsubsection{UDP}\label{introduction:qos:udp}
+            UDP, User Datagram Protocol, is a lightweight transport protocol, providing minimal services. UDP is connectionless, so there is no handshaking before the two processes start to com- municate. UDP provides an unreliable data transfer service—that is, when a process sends a message into a UDP socket, UDP provides no guarantee that the message will ever reach the receiving process. Furthermore, messages that do arrive at the receiving process may arrive out of order. UDP does not include a congestion-control mechanism, so the sending side of UDP can pump data into the layer below (the network layer) at any rate it pleases.~\autocite{alma990025667610203776} Since UDP is a minimal transport layer protocol, the things we can get would be the source port, the destination port, and the application-layer-encrypted payloads that it carries.
 
-        \begin{description}
-            \item[Uplink Bitrate] The \emph{uplink bitrate} or \emph{uplink capacity} is the rate at which the client sends packets to other users or to a relay server. It is usually measured in~Mbps. A low uplink bitrate generally leads to poor audio/video upload quality.
 
-            \item[Downlink Bitrate] The \emph{downlink bitrate} or \emph{downlink capacity} is the rate at which the client downloads from other users or from a relay server. It is also measured in~Mbps. A low downlink bitrate generally leads to low resolution video, poor refresh rates, and other drops in video quality.
+        \subsubsection{WebRTC}\label{introduction:qos:webrtc}
+            WebRTC is an application-layer protocol used for video conferencing. It is built upon~RTP. While some of the popular~VCAs use~WebRTC, Zoom uses its own closed-source extension~\autocite{marczak2020}, making it difficult to evaluate QoE~and QoS~metrics from the network layer. While the Zoom~API does provide some QoE information, it is at a minute's granularity~\autocite{walia2019}, which is both at the application layer and is not fine enough for our purposes. Here aare the elements that WebRTC collects:
 
-            \item[Packet Loss] Network data may be lost in transit, quantified as \emph{packet loss}. This may be because of software factors such as network congestion, or physical factors such as poor wireless signal or broken cabling. Packet loss is measured as a percentage over a given time period.
-        \end{description}
+            \begin{description}
+                \item[Uplink Bitrate] The \emph{uplink bitrate} or \emph{uplink capacity} is the rate at which the client sends packets to other users or to a relay server. It is usually measured in~Mbps. A low uplink bitrate generally leads to poor audio/video upload quality.
+
+                \item[Downlink Bitrate] The \emph{downlink bitrate} or \emph{downlink capacity} is the rate at which the client downloads from other users or from a relay server. It is also measured in~Mbps. A low downlink bitrate generally leads to low resolution video, poor refresh rates, and other drops in video quality.
+
+                \item[Packet Loss] Network data may be lost in transit, quantified as \emph{packet loss}. This may be because of software factors such as network congestion, or physical factors such as poor wireless signal or broken cabling. Packet loss is measured as a percentage over a given time period.
+            \end{description}
+        
 
         % There are three known major factors that contribute to poor video quality: packet loss due to unreliable transmission, delays caused by the network capacity, and jitter, caused by irregular delays~\autocite{ChenYanjiao2015FQtQ}.
 
@@ -38,9 +44,6 @@
 
         Quality of experience can also be negatively impacted by the format with which the video is compressed. When automatically monitoring for~QoE, systems often consider the bitrate and the frame rate~\autocite{ChenYanjiao2015FQtQ}. The bitrate is the rate at which the video codec compressing the video emits data, and the frame rate is the number of frames displayed per second. Moreover, the video itself may impact the~QoE---videos with low amounts of movement may appear to have higher quality than videos with high amounts of movement when subjected to jitter or packet loss, for example~\autocite{ChenYanjiao2015FQtQ}.
 
-
-    \subsection{WebRTC}\label{introduction:webrtc}
-        WebRTC is an application-layer protocol used for video conferencing. It is built upon~RTP. While some of the popular~VCAs use~WebRTC, Zoom uses its own closed-source extension~\autocite{marczak2020}, making it difficult to evaluate QoE~and QoS~metrics from the network layer. While the Zoom~API does provide some QoE information, it is at a minute's granularity~\autocite{walia2019}, which is both at the application layer and is not fine enough for our purposes.
 
     % This section covers our motivations for the project.
     %\subsection{Applications}\label{introduction:applications}
